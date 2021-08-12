@@ -9,9 +9,14 @@ const argv = require('yargs')
         type: 'boolean',
         default: false
         })    
+    .option('h',{
+        alias: 'hasta',
+        type: 'number',
+        demandOption:true
+        }) 
         .check( (argv, options) =>{
-            if ( isNaN(argv.b)){
-                throw 'La base tiene que ser un numero'
+            if ( isNaN(argv.b) | isNaN(argv.h)){
+                throw 'La base y el limite tiene que ser un numero'
             }
             return true;
             }).argv;       
